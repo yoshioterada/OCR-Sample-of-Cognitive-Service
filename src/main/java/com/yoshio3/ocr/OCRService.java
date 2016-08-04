@@ -122,7 +122,7 @@ public class OCRService {
     true : SUCESS
     false : FAILED
     */
-    private boolean checkReqeuestSuccess(Response response) {
+    private boolean checkRequestSuccess(Response response) {
         Response.StatusType statusInfo = response.getStatusInfo();
         Response.Status.Family family = statusInfo.getFamily();
         return family != null && family == Response.Status.Family.SUCCESSFUL;
