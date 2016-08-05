@@ -56,7 +56,7 @@ public class OCRService {
         OCRRequestJSONBody entity = new OCRRequestJSONBody();
         entity.setUrl(pictURI);
         Response response = invokeBuilder.post(Entity.entity(entity, MediaType.APPLICATION_JSON_TYPE));
-        if (checkReqeuestSuccess(response)) {
+        if (checkRequestSuccess(response)) {
             OCRResponseJSONBody result = response.readEntity(OCRResponseJSONBody.class);
             return Optional.of(result);
         } else {
@@ -78,7 +78,7 @@ public class OCRService {
      */
     public Optional<OCRResponseJSONBody> getOCRAnalysisResult(byte[] binaryImage) throws IOException {
         Response response = invokeBuilder.post(Entity.entity(binaryImage, MediaType.APPLICATION_OCTET_STREAM_TYPE));
-        if (checkReqeuestSuccess(response)) {
+        if (checkRequestSuccess(response)) {
             OCRResponseJSONBody result = response.readEntity(OCRResponseJSONBody.class);
             return Optional.of(result);
         } else {
